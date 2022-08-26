@@ -6,15 +6,30 @@ namespace AplicacionInteresante
 {
     public partial class PepeTron
     {
+        
         public void CargarPrograma()
         {
-            while (indice < 100)
+            while (indice < 100 )
             {
                 //linea = memoria[indice];
                 Console.Write(indice + "? ");
-                memoria[indice++] = int.Parse(Console.ReadLine());
+                linea = int.Parse(Console.ReadLine());
+                if (linea == 9999)
+                    break;
+                memoria[indice++] = linea;
             }
             Console.WriteLine("** Se cargó el programa correctamente **");
+        }
+
+        public void CargarPrograma(string ubicacionArchivo)
+        {
+            //C:\Users\pepe\Desktop\programa.lmpp
+            System.IO.StreamReader archivo = new System.IO.StreamReader(ubicacionArchivo);
+            indice = 0;
+            string lineaAux;
+            while ((lineaAux = archivo.ReadLine()) != null) {
+                memoria[indice++] = int.Parse(lineaAux);
+            }
         }
 
         /*

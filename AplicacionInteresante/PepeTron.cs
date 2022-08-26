@@ -15,7 +15,7 @@ namespace AplicacionInteresante
         {
             Console.WriteLine("** Volcado de memoria  **\n** Maquina interesante **");
             indice = 0;
-            while (indice < 3)
+            while (indice < 100)
             {
                 Console.WriteLine(memoria[indice++]);
             }

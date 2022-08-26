@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AplicacionInteresante": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\rusokverse\\Desktop\\programa.lmpp"
+    }
+  }
+}

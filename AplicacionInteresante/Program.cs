@@ -12,7 +12,7 @@ namespace AplicacionInteresante
         {
             /* Una máquina que ejecuta código */
             PepeTron maquina = new PepeTron();
-            maquina.CargarPrograma();
+            maquina.CargarPrograma(args[0]);
             maquina.VolcarMemoria();
             maquina.EjecutarPrograma();
 
