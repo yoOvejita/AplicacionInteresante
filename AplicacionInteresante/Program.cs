@@ -14,7 +14,7 @@ namespace AplicacionInteresante
             PepeTron maquina = new PepeTron();
             maquina.CargarPrograma();
             maquina.VolcarMemoria();
-            
+            maquina.EjecutarPrograma();
 
             
         }
