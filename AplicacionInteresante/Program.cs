@@ -13,10 +13,10 @@ namespace AplicacionInteresante
             /* Una máquina que ejecuta código */
             PepeTron maquina = new PepeTron();
             maquina.CargarPrograma(args[0]);
-            maquina.VolcarMemoria();
+            //maquina.VolcarMemoria();
             maquina.EjecutarPrograma();
 
-            
+            maquina.VolcarMemoria();
         }
     }
 }

@@ -14,12 +14,15 @@ namespace AplicacionInteresante
         public void VolcarMemoria()
         {
             Console.WriteLine("** Volcado de memoria  **\n** Maquina interesante **");
-            indice = 0;
-            while (indice < 100)
+            for (int i = 0; i < 100; i++)
             {
-                Console.WriteLine(memoria[indice++]);
+                if (memoria[i] > 0)
+                {
+                    Console.WriteLine("Memoria [" + i + "] " + "Valor "+ memoria[i]);
+                }
             }
-
+           
+           
         }
     }
 }

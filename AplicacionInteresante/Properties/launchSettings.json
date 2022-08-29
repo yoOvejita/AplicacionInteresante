@@ -2,7 +2,7 @@
   "profiles": {
     "AplicacionInteresante": {
       "commandName": "Project",
-      "commandLineArgs": "C:\\Users\\rusokverse\\Desktop\\programa.lmpp"
+      "commandLineArgs": "C:\\Users\\Fernando\\source\\repos\\AplicacionInteresante\\AplicacionInteresante\\Archivo\\lmpp.txt"
     }
   }
 }
