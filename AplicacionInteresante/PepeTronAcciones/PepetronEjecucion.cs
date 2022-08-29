@@ -14,6 +14,9 @@ namespace AplicacionInteresante
             Console.Clear();
             int posicion=validador();
 
+            selectorOperacion();//ejecutar el programa
+
+            /*
             if (memoria[98] == 0)
             {
                 selectorOperacion();
@@ -34,10 +37,25 @@ namespace AplicacionInteresante
                 }
                 
             }
-           
+           */
 
         }
         private void selectorOperacion() {
+            /*
+            Descomposición de números
+            in: 1234 
+            out: 12
+            1234 / 10 = 123
+            1234 / 100 = 12
+
+            in: 1234
+            out: 34
+            1234 % 10 = 4
+            1234 % 100 = 34
+
+             */
+
+
             const int LEER = 10, ESCRIBIR = 11;
             const int CARGAR = 20, ALMACENAR = 21;
             const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33;
@@ -45,9 +63,12 @@ namespace AplicacionInteresante
             //int acumulador = 0;
             //int aux=0;  
             //Leer las instrucciones (las líneas) y ejecutarlas una a una
-            for (int indice = 0; indice < 97; indice++)
+
+            
+
+            for (int indice = 0; indice < memoria.Length; indice++)
             {
-                if (memoria[indice]>0)
+                if (memoria[indice]>0 && memoria[indice] <= 9999)
                 {
                     switch (Convert.ToInt32((memoria[indice].ToString()).Substring(0, 2)))
                     {
@@ -58,29 +79,29 @@ namespace AplicacionInteresante
                             memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = linea;
                             break;
                         case CARGAR:
-                            memoria[99] = memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            acumulador = memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
                         case SUMAR:
-                            memoria[99] = memoria[99] + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            acumulador = acumulador + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
                         case ALMACENAR:
-                            memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = memoria[99];
+                            memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = acumulador;
                             break;
                         case ESCRIBIR:
                             Console.WriteLine("Resultado posicion  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
                             break;
 
                         case MULTIPLICAR:
-                            memoria[99] = memoria[99] * memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            acumulador = acumulador * memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
                         case RESTAR:
-                            memoria[99] = memoria[99] - memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            acumulador = acumulador - memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
                         case DIVIDIR:
 
                             try
                             {
-                                memoria[99] = memoria[99] / memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                                acumulador = acumulador / memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                                 
                             }
                             catch (Exception e)
@@ -101,6 +122,7 @@ namespace AplicacionInteresante
                 }
                 else
                 {
+                    Console.WriteLine("Eror de Longitud en instruccion");
                     break;
                 }
                
