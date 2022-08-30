@@ -58,8 +58,10 @@ namespace AplicacionInteresante
 
             const int LEER = 10, ESCRIBIR = 11;
             const int CARGAR = 20, ALMACENAR = 21;
-            const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33;
+            const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33, POTENCIAR = 34, MODULAR = 35;
             const int SALTAR = 40, SALTARNEG = 41, SALTARCERO = 42, ALTO = 43;
+
+
             //int acumulador = 0;
             //int aux=0;  
             //Leer las instrucciones (las líneas) y ejecutarlas una a una
@@ -75,25 +77,45 @@ namespace AplicacionInteresante
                         case LEER:
                             
                             Console.Write("Ingrese valor para Memoria :" + (memoria[indice].ToString()).Substring(2, 2) + "--> ");
+
                             linea = int.Parse(Console.ReadLine());
                             memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = linea;
                             break;
+                        
                         case CARGAR:
                             acumulador = memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
+
                         case SUMAR:
                             acumulador = acumulador + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
+
+
+                        
+
+
                         case ALMACENAR:
                             memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = acumulador;
                             break;
+
                         case ESCRIBIR:
                             Console.WriteLine("Resultado posicion  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
                             break;
 
+
+
+                        case POTENCIAR:
+                            acumulador = acumulador = Math.Pow(acumulador, memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2)))];
+                            break;
+
+                        case MODULAR:
+                            acumulador = acumulador % memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            break;  
+
                         case MULTIPLICAR:
                             acumulador = acumulador * memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
+
                         case RESTAR:
                             acumulador = acumulador - memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
@@ -122,7 +144,7 @@ namespace AplicacionInteresante
                 }
                 else
                 {
-                    Console.WriteLine("Eror de Longitud en instruccion");
+                    Console.WriteLine("Error de Longitud en instruccion");
                     break;
                 }
                

@@ -15,7 +15,7 @@ namespace AplicacionInteresante
         {
             Console.ForegroundColor = ConsoleColor.Green;//Cambiando el color de las letras
             Console.WriteLine("** Volcado de memoria  **\n** Maquina interesante **");
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < memoria.Length; i++)
             {
                 if (memoria[i] > 0)
                 {
