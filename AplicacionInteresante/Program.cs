@@ -7,10 +7,8 @@ namespace AplicacionInteresante
         //Necesitamos:
         static int[] memoria = new int[memoria.Length];
         static int indice = 0;
-   
         static int linea = 0;//2011
         string hex = linea.ToString("X");
-
 
         static void Main(string[] args)
         {

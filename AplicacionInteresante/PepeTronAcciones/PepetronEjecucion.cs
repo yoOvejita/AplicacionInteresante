@@ -13,7 +13,6 @@ namespace AplicacionInteresante
             //int acumulador=0;
             Console.Clear();
             int posicion=validador();
-
             selectorOperacion();//ejecutar el programa
 
             /*
@@ -32,13 +31,9 @@ namespace AplicacionInteresante
                     case 11:
                         Console.WriteLine("Falta asignacion de Fin");
                         break;
-
-
-                }
-                
+                }     
             }
            */
-
         }
         private void selectorOperacion() {
             /*
@@ -54,19 +49,13 @@ namespace AplicacionInteresante
             1234 % 100 = 34
 
              */
-
-
             const int LEER = 10, ESCRIBIR = 11;
             const int CARGAR = 20, ALMACENAR = 21;
             const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33, POTENCIAR = 34, MODULAR = 35;
             const int SALTAR = 40, SALTARNEG = 41, SALTARCERO = 42, ALTO = 43;
-
-
             //int acumulador = 0;
             //int aux=0;  
             //Leer las instrucciones (las líneas) y ejecutarlas una a una
-
-            
 
             for (int indice = 0; indice < memoria.Length; indice++)
             {
@@ -89,21 +78,13 @@ namespace AplicacionInteresante
                         case SUMAR:
                             acumulador = acumulador + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
-
-
-                        
-
-
                         case ALMACENAR:
                             memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = acumulador;
                             break;
 
                         case ESCRIBIR:
-                            Console.WriteLine("Resultado posicion  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
+                            Console.WriteLine("Resultado posición  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
                             break;
-
-
-
                         case POTENCIAR:
                             acumulador = acumulador = Math.Pow(acumulador, memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2)))];
                             break;
@@ -132,28 +113,24 @@ namespace AplicacionInteresante
                                 Console.WriteLine(e);
                                 
                             }
-
                             break;
                         case ALTO:
-                            Console.WriteLine("Fin de instruccion");
+                            Console.WriteLine("Fin de instrucción");
                             indice = 97;
-                            break;
-                                          
+                            break;                    
                     }
-
                 }
                 else
                 {
-                    Console.WriteLine("Error de Longitud en instruccion");
+                    Console.WriteLine("Error de Longitud en instrucción");
                     break;
-                }
-               
+                }              
             }
         }
         public int validador()
         {
             //Reservamos posicion 99 para acumulador
-            //Reservamos posicion 98 para erro
+            //Reservamos posicion 98 para error
             const int E_LONGITUD = 10;
             const int E_FIN = 11; 
             int posicion = 0;
@@ -166,7 +143,7 @@ namespace AplicacionInteresante
                 {
                     
                     memoria[98]=E_LONGITUD;
-                    posicion = i;                 // Console.Write("Validacion de longitud: " + memoria[indice]);
+                    posicion = i;   // Console.Write("Validacion de longitud: " + memoria[indice]);
                     break;
                 }
                 // validamos que exista fin de linea
@@ -178,12 +155,8 @@ namespace AplicacionInteresante
                 }
                 //validamos 
                 
-            }
-           
-
-            return posicion;
-            
-
+            }        
+            return posicion;            
         }
     }
 }

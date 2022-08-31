@@ -22,11 +22,7 @@ namespace AplicacionInteresante
                     Console.WriteLine("Memoria [" + i + "] " + "Valor "+ memoria[i]);
                 }
             }
-
             Console.ResetColor();
-
-
-
             //Conversion letra - numero
 
             char c = Convert.ToChar(122);
@@ -45,8 +41,6 @@ namespace AplicacionInteresante
                 Console.WriteLine(hexadecimal);
                 Console.WriteLine(int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber));
             }
-
-
         }
     }
 }
