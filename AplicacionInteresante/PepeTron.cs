@@ -41,6 +41,22 @@ namespace AplicacionInteresante
                 Console.WriteLine(hexadecimal);
                 Console.WriteLine(int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber));
             }
+
+
+           
+
+        }
+        public void VolcarMemoriaHexaPrueba()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            string espacio = "Hola Mundo!";
+            char[] valores = espacio.ToCharArray();
+            foreach (char letra in valores)
+            {       
+                int valor = Convert.ToInt32(letra);         
+                Console.WriteLine($"El valor Hexadecimal de {letra} es {valor:X}");
+            }
+
         }
     }
 }

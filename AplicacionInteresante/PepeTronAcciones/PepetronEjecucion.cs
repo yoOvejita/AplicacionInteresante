@@ -49,7 +49,7 @@ namespace AplicacionInteresante
             1234 % 100 = 34
 
              */
-            const int LEER = 10, ESCRIBIR = 11;
+            const int LEER = 10, ESCRIBIR = 11, LEERCAD = 12;
             const int CARGAR = 20, ALMACENAR = 21;
             const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33, POTENCIAR = 34, MODULAR = 35;
             const int SALTAR = 40, SALTARNEG = 41, SALTARCERO = 42, ALTO = 43;
@@ -64,13 +64,12 @@ namespace AplicacionInteresante
                     switch (Convert.ToInt32((memoria[indice].ToString()).Substring(0, 2)))
                     {
                         case LEER:
-                            
-                            Console.Write("Ingrese valor para Memoria :" + (memoria[indice].ToString()).Substring(2, 2) + "--> ");
 
+                            Console.Write("Ingrese valor para Memoria :" + (memoria[indice].ToString()).Substring(2, 2) + "--> ");
                             linea = int.Parse(Console.ReadLine());
                             memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = linea;
                             break;
-                        
+                            
                         case CARGAR:
                             acumulador = memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
@@ -78,6 +77,7 @@ namespace AplicacionInteresante
                         case SUMAR:
                             acumulador = acumulador + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
                             break;
+
                         case ALMACENAR:
                             memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = acumulador;
                             break;
@@ -85,9 +85,10 @@ namespace AplicacionInteresante
                         case ESCRIBIR:
                             Console.WriteLine("Resultado posición  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
                             break;
-                        case POTENCIAR:
-                            acumulador = acumulador = Math.Pow(acumulador, memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2)))];
-                            break;
+
+                        //case POTENCIAR:
+                        //    acumulador = acumulador = Math.Pow(acumulador, memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2)))];
+                        //    break;
 
                         case MODULAR:
                             acumulador = acumulador % memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];

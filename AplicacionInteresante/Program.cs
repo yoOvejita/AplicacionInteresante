@@ -8,7 +8,8 @@ namespace AplicacionInteresante
         static int[] memoria = new int[memoria.Length];
         static int indice = 0;
         static int linea = 0;//2011
-        string hex = linea.ToString("X");
+
+        //string hex = linea.ToString("X");
 
         static void Main(string[] args)
         {
@@ -17,8 +18,9 @@ namespace AplicacionInteresante
             maquina.CargarPrograma(args[0]);
             //maquina.VolcarMemoria();
             maquina.EjecutarPrograma();
-
+            maquina.VolcarMemoriaHexaPrueba();
             maquina.VolcarMemoria();
+            
         }
     }
 }
