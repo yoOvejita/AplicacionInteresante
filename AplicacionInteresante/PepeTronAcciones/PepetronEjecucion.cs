@@ -86,9 +86,9 @@ namespace AplicacionInteresante
                             Console.WriteLine("Resultado posición  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
                             break;
 
-                        //case POTENCIAR:
-                        //    acumulador = acumulador = Math.Pow(acumulador, memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2)))];
-                        //    break;
+                        case POTENCIAR:
+                            acumulador = acumulador = (int)Math.Pow(acumulador, memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
+                            break;
 
                         case MODULAR:
                             acumulador = acumulador % memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
