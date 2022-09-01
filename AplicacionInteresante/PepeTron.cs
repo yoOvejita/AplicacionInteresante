@@ -8,7 +8,7 @@ namespace AplicacionInteresante
     {
         string[] memoria = new string[100];//Nueva longitud iría hasta cubrir el numero FF
         int indice = 0;
-        int linea = 0;
+        double linea = 0; //de int a double R
         string acumulador = "";
         
         public void VolcarMemoria()

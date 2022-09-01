@@ -51,7 +51,9 @@ namespace AplicacionInteresante
              */
             const int LEER = 10, ESCRIBIR = 11, LEERCAD = 12;
             const int CARGAR = 20, ALMACENAR = 21;
-            const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33, POTENCIAR = 34, MODULAR = 35;
+            const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33, POTENCIAR = 34,
+                MODULAR = 35, CALCULARDOUBSum = 36, CALCULARDOUBRest = 37, CALCULARDOUBMulti = 38, CALCULARDOUBDivis = 39,
+                 CALCULARDOUBMod = 94;
             const int SALTAR = 40, SALTARNEG = 41, SALTARCERO = 42, ALTO = 43;
             //int acumulador = 0;
             //int aux=0;  
@@ -67,7 +69,9 @@ namespace AplicacionInteresante
                         case LEER:
 
                             Console.Write("Ingrese valor para Memoria :" + (memoria[indice].ToString()).Substring(2, 2) + "--> ");
-                            linea = int.Parse(Console.ReadLine());
+                            //linea = int.Parse(Console.ReadLine());
+                            linea = double.Parse(System.Console.ReadLine());
+
                             //Esto soluciona el error, debemos poner la declaración de hexadecimal desde acá, pues acá guarda valores en posiciones de memoria hexadecimales
                             string hexadecimal = memoria[indice].Substring(2, 2);
                             memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)] = linea+"";
@@ -95,7 +99,7 @@ namespace AplicacionInteresante
 
                         case ESCRIBIR:
                             hexadecimal = memoria[indice].Substring(2, 2);
-                            Console.WriteLine("Resultado posición  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)]);
+                            Console.WriteLine("Resultado posición  :" + (memoria[indice].ToString()).Substring(2, 2) + "-->  " + memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)]);
                             break;
 
                         case POTENCIAR:
@@ -123,6 +127,38 @@ namespace AplicacionInteresante
                             hexadecimal = memoria[indice].Substring(2, 2);
                             acumulador = (int.Parse(acumulador) - int.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
                             break;
+
+                        //Cálculo de Double/Flot
+
+                        case CALCULARDOUBSum:
+
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (double.Parse(acumulador) + double.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
+                            break;
+
+                        case CALCULARDOUBRest:
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (double.Parse(acumulador) - double.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
+                            break;
+
+                        case CALCULARDOUBMulti:
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (double.Parse(acumulador) * double.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
+                            break;
+
+                        case CALCULARDOUBDivis:
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (double.Parse(acumulador) / double.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
+                            break;
+
+                        case CALCULARDOUBMod:
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (double.Parse(acumulador) % double.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
+                            break;
+
+
+
+                        // 
                         case DIVIDIR:
 
                             try
