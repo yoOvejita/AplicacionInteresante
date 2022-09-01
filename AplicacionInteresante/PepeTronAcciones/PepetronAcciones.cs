@@ -16,7 +16,7 @@ namespace AplicacionInteresante
                 linea = int.Parse(Console.ReadLine());
                 if (linea == 9999)
                     break;
-                memoria[indice++] = linea;
+                memoria[indice++] = linea + "";//O podríamos convertir "linea"· en string y cambiar el resto
             }
             Console.WriteLine("** Se cargó el programa correctamente **");
         }
@@ -28,7 +28,7 @@ namespace AplicacionInteresante
             indice = 0;
             string lineaAux;
             while ((lineaAux = archivo.ReadLine()) != null) {
-                memoria[indice++] = int.Parse(lineaAux);
+                memoria[indice++] = lineaAux;//int.Parse(lineaAux);
             }
         }
 

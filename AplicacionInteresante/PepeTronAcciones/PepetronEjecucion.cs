@@ -12,7 +12,7 @@ namespace AplicacionInteresante
             //Completen lo qu falta
             //int acumulador=0;
             Console.Clear();
-            int posicion=validador();
+            //int posicion=validador();
             selectorOperacion();//ejecutar el programa
 
             /*
@@ -59,53 +59,76 @@ namespace AplicacionInteresante
 
             for (int indice = 0; indice < memoria.Length; indice++)
             {
-                if (memoria[indice]>0 && memoria[indice] <= 9999)
+                //También hacemos un control por nulo
+                if (memoria[indice]!= null && !memoria[indice].Equals("") && !memoria[indice].Equals("9999"))
                 {
-                    switch (Convert.ToInt32((memoria[indice].ToString()).Substring(0, 2)))
+                    switch (Convert.ToInt32(memoria[indice].Substring(0, 2)))
                     {
                         case LEER:
 
                             Console.Write("Ingrese valor para Memoria :" + (memoria[indice].ToString()).Substring(2, 2) + "--> ");
                             linea = int.Parse(Console.ReadLine());
-                            memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = linea;
+                            //Esto soluciona el error, debemos poner la declaración de hexadecimal desde acá, pues acá guarda valores en posiciones de memoria hexadecimales
+                            string hexadecimal = memoria[indice].Substring(2, 2);
+                            memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)] = linea+"";
                             break;
                             
                         case CARGAR:
-                            acumulador = memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            //Acá también trabajamos con posiciones en hexadecimal
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)];
                             break;
 
                         case SUMAR:
-                            acumulador = acumulador + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            //Ej acumulador = "12" + "70" --> "1270" 
+                            //  acumulador = 12 + 70 ---> 82 --> "82"
+                            // 301C --> suma lo que está en 1C
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (int.Parse(acumulador) + int.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
                             break;
 
                         case ALMACENAR:
-                            memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))] = acumulador;
+                            //Acá también trabajamos con posiciones en hexadecimal
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)] = acumulador;
                             break;
 
                         case ESCRIBIR:
-                            Console.WriteLine("Resultado posición  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            Console.WriteLine("Resultado posición  :" + (memoria[indice].ToString()).Substring(2, 2) + "--> " + memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)]);
                             break;
 
                         case POTENCIAR:
-                            acumulador = acumulador = (int)Math.Pow(acumulador, memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))]);
+                            //acumulador = "123"
+                            //acumulador = "123.2"
+                            Console.WriteLine("POTENCIA ");
+                            Console.WriteLine("Acumulador: " + acumulador);
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            Console.WriteLine("Memoria: " + memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)]);
+                            
+                            acumulador = Math.Pow(int.Parse(acumulador), int.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
                             break;
 
                         case MODULAR:
-                            acumulador = acumulador % memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
-                            break;  
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (int.Parse(acumulador) % int.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
+            break;  
 
                         case MULTIPLICAR:
-                            acumulador = acumulador * memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (int.Parse(acumulador) * int.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
                             break;
 
                         case RESTAR:
-                            acumulador = acumulador - memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            acumulador = (int.Parse(acumulador) - int.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
                             break;
                         case DIVIDIR:
 
                             try
                             {
-                                acumulador = acumulador / memoria[Convert.ToInt32((memoria[indice].ToString()).Substring(2, 2))];
+                                hexadecimal = memoria[indice].Substring(2, 2);
+                                acumulador = (int.Parse(acumulador) / int.Parse(memoria[int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber)])) + "";
                                 
                             }
                             catch (Exception e)
@@ -128,6 +151,7 @@ namespace AplicacionInteresante
                 }              
             }
         }
+        /*
         public int validador()
         {
             //Reservamos posicion 99 para acumulador
@@ -159,5 +183,6 @@ namespace AplicacionInteresante
             }        
             return posicion;            
         }
+        */
     }
 }

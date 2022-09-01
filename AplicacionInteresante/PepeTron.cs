@@ -6,10 +6,10 @@ namespace AplicacionInteresante
 {
     public partial class PepeTron
     {
-        int[] memoria = new int[100];//Nueva longitud iría hasta cubrir el numero FF
+        string[] memoria = new string[100];//Nueva longitud iría hasta cubrir el numero FF
         int indice = 0;
         int linea = 0;
-        int acumulador = 0;
+        string acumulador = "";
         
         public void VolcarMemoria()
         {
@@ -17,7 +17,8 @@ namespace AplicacionInteresante
             Console.WriteLine("** Volcado de memoria  **\n** Maquina interesante **");
             for (int i = 0; i < memoria.Length; i++)
             {
-                if (memoria[i] > 0)
+                //Hacemos control por nulo también
+                if (memoria[i]!= null && !memoria[i].Equals(""))
                 {
                     Console.WriteLine("Memoria [" + i + "] " + "Valor "+ memoria[i]);
                 }
