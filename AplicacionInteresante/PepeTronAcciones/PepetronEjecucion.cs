@@ -174,6 +174,31 @@ namespace AplicacionInteresante
                                 
                             }
                             break;
+                        case SALTAR:
+                            //Cambiamos el valor de índice
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            indice = int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber);
+                            indice--;//Porque al final del FOR se incrementa en 1
+                            break;
+                        case SALTARNEG:
+                            //Cambiamos el valor de índice ... SI ELACUMULADOR TIENE UN VALOR NEGATIVO
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            if (int.Parse(acumulador) < 0)
+                            {
+                                indice = int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber);
+                                indice--;//Porque al final del FOR se incrementa en 1
+                            }
+                            break;
+                        case SALTARCERO:
+                            //Cambiamos el valor de índice ... SI ELACUMULADOR TIENE UN VALOR DE CERO
+                            hexadecimal = memoria[indice].Substring(2, 2);
+                            if (int.Parse(acumulador) == 0)
+                            {
+                                indice = int.Parse(hexadecimal, System.Globalization.NumberStyles.HexNumber);
+                                indice--;//Porque al final del FOR se incrementa en 1
+                            }
+                            break;
+                            break;
                         case ALTO:
                             Console.WriteLine("Fin de instrucción");
                             indice = 97;
